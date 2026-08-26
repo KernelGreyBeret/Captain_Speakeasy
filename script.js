@@ -2,6 +2,7 @@ const LINKS = {
   twitch: "https://www.twitch.tv/captain_speakeasy",
   youtube: "https://www.youtube.com/@captain_Speakeasy?sub_confirmation=1",
   tiktok: "https://www.tiktok.com/@captain_speakeasy",
+  instagram: "https://www.instagram.com/captain_speakeasy/",
   discord: "https://discord.gg/hAJgjGZUZv",
   cosoc: "https://cosoc.com/CAPTAINx_xMORGAN",
   tip: "https://streamelements.com/captain_speakeasy/tip",
@@ -31,3 +32,25 @@ document.querySelectorAll(".topnav a").forEach((link) => {
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+
+const featuredTutorial = document.getElementById("featured-tutorial");
+
+function startFeaturedTutorial() {
+  if (!featuredTutorial || featuredTutorial.dataset.started === "true") return;
+  featuredTutorial.src = featuredTutorial.dataset.src;
+  featuredTutorial.dataset.started = "true";
+}
+
+if (featuredTutorial && "IntersectionObserver" in window) {
+  const tutorialObserver = new IntersectionObserver((entries, observer) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      startFeaturedTutorial();
+      observer.disconnect();
+    }
+  }, { threshold: 0.28 });
+
+  tutorialObserver.observe(featuredTutorial);
+} else {
+  startFeaturedTutorial();
+}
