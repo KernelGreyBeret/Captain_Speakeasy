@@ -9,7 +9,7 @@ const LINKS = {
   treatstream: "https://treatstream.com/t/treat/captainx_xmorgan",
   x: "https://x.com/CPTSpeakeasy",
   patreon: "https://www.patreon.com/CAPTAINx_XMORGAN",
-  shop: "https://captain-xmorgan-shop.fourthwall.com/password",
+  shop: "https://captainspeakeasy-shop.fourthwall.com/",
   buymeacoffee: "https://buymeacoffee.com/captainspeakeasy"
 };
 
